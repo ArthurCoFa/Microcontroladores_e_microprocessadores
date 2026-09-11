@@ -1,9 +1,9 @@
 #include <Wire.h> // Biblioteca comunicação com o I2C
 #include <LiquidCrystal_I2C.h> // Biblioteca comunicação com o display 16x2
 
-#define col 16 // define numero de colunas do display
-#define lin  2 // define numero de linhas do display
-#define ende  0x27 // define endereço do display.
+#DEFINE col 16 // Define numero de colunas do display
+#DEFINE lin  2 // Define numero de linhas do display
+#DEFINE ende  0x27 // Define endereço do display.
 
 LiquidCrystal_I2C lcd(ende,col,lin); // função LiquidCrystal para ser usada com o I2C
 
@@ -15,6 +15,7 @@ byte name1x3[] = { B01110, B11111, B11001, B11000, B11000, B11001, B11111, B0111
 byte name1x4[] = { B11111, B11111, B10000, B11111, B11111, B10000, B11111, B11111 };
 byte name1x5[] = { B11011, B11011, B11011, B11011, B11011, B11011, B11111, B11111 };
 byte name1x6[] = { B11110, B10011, B10011, B11110, B11110, B10011, B10011, B11110 };
+// Pixels de cada letra formando a palavra UNICEUB na linha 1 totalmente a esquerda
 
 byte name0x9[] = { B11011, B11011, B11011, B11011, B11011, B11011, B11111, B11111 };
 byte name0x10[] = { B00000, B00000, B00000, B10110, B11001, B10001, B10001, B10001 };
@@ -23,11 +24,12 @@ byte name0x12[] = { B01110, B11111, B11001, B11000, B11000, B11001, B11111, B011
 byte name0x13[] = { B11111, B11111, B10000, B11111, B11111, B10000, B11111, B11111 };
 byte name0x14[] = { B11011, B11011, B11011, B11011, B11011, B11011, B11111, B11111 };
 byte name0x15[] = { B11110, B10011, B10011, B11110, B11110, B10011, B10011, B11110 };
+// Pixels de cada letra formando a palavra UNICEUB na linha 0 totalmente a direta
 
 void setup() {
-  lcd.init(); // iniciar a comunicação com o display
-  lcd.backlight(); // liga a luz do display
-  lcd.clear(); // limpa a tela do display
+  lcd.init(); // Iniciar a comunicação com o display
+  lcd.backlight(); // Liga a luz do display
+  lcd.clear(); // Limpa a tela do display
 }
 
 void loop() {
@@ -36,7 +38,8 @@ void loop() {
   rodarEsquerdaCeub();
 };
 
-/*void imprimirCeub(){
+void imprimirCeub(){
+  // Função para imprimir o nome UniCEUB com caracteres personalizados
   lcd.begin(16, 2);
   
   lcd.createChar(0, name0x0);
@@ -73,10 +76,10 @@ void loop() {
   delay(2000);
 
   lcd.clear();
-}*/
+}
 
 void rodarDireitaCeub() { 
-  
+  // Função que faz o nome UniCEUB percorrer a linha 1 para a direita até sumir
   lcd.clear(); // Limpa o display 
 
   lcd.begin(16, 2);
@@ -119,7 +122,7 @@ void rodarDireitaCeub() {
 } 
 
 void rodarEsquerdaCeub(){
-
+  // Função que faz o nome UniCEUB percorrer a linha 1 para a direita até sumir
   lcd.clear(); // Limpa o display 
 
   lcd.begin(16, 2);

@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////////////////////////
+// Código que usa um potenciômetro para fazer uma barra de progressão //
+////////////////////////////////////////////////////////////////////////
+
 #include <Wire.h> // Biblioteca comunicação com o I2C
 #include <LiquidCrystal_I2C.h> // Biblioteca comunicação com o display 16x2
 
@@ -24,7 +28,7 @@ void loop() {
 
 void barraProgressao(){
 
-  int c = 0;
+  int c = 0; // Coluna na qual vai acender ou apagar o bloco
 
   for(int x = 0; x < 256; x += 16, c++){
     lcd.createChar(0, acende);
