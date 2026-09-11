@@ -11,7 +11,8 @@
 
 // int val = 0;
 
-LiquidCrystal_I2C lcd(ende,col,lin); // função LiquidCrystal para ser usada com o I2C
+LiquidCrystal_I2C lcd(ende,col,lin); 
+// função LiquidCrystal para ser usada com o I2C
 
 byte acende[] = { B11111, B11111, B11111, B11111, B11111, B11111, B11111, B11111 };
 byte apaga[] = { B00000, B00000, B00000, B00000, B00000, B00000, B00000, B00000 };
