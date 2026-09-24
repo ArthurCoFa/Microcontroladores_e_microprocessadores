@@ -1,3 +1,5 @@
+#include <LiquidCrystal.h>
+
 ////////////////////////////////////////////////////////////////////////
 // Código que usa um potenciômetro para fazer uma barra de progressão //
 ////////////////////////////////////////////////////////////////////////
@@ -15,8 +17,7 @@ int potValue = 0;
 LiquidCrystal_I2C lcd(ende,col,lin); 
 // função LiquidCrystal para ser usada com o I2C
 
-byte acende[] = { B11111, B11111, B11111, B11111, B11111, B11111, B11111, B11111 };
-byte apaga[] = { B00000, B00000, B00000, B00000, B00000, B00000, B00000, B00000 };
+byte acende[] = { B11000, B11100, B11110, B11111, B11111, B11110, B11100, B11000 };
 
 void setup() {
   lcd.init(); // iniciar a comunicação com o display
@@ -26,11 +27,18 @@ void setup() {
 }
 
 void loop() {
+  createGlyphDemo();
   barraProgressao();
   potValue = analogRead(A0) / 4;
   Serial.println(potValue);
   analogWrite(transPin, potValue);
 }
+
+void createGlyphDemo() {
+  lcd.clear(); 
+  // Cria um array de bytes com uma cara feliz
+  lcd.createChar(0, acende); // Cria o caractere personalizado 0
+} 
 
 void barraProgressao(){
 
