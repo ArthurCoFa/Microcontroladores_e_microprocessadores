@@ -1,0 +1,32 @@
+PROTOCOLOS DE COMUNICAÇÃO
+
+I2C (Inter-Integrated Circuit) - simples, utiliza somente 2 pinos:
+* SDA - Serial Data Line (Dados): Barramento de trafego do dados
+* SCL - Serial Clock Line (Clock): Barramento de sincronização do clock
+
+SPI (Serial Peripheral Interface) - mais rápido e direto, usado quando 
+comunicação é importante, utiliza 4 pinos:
+* MOSI (dados do microcontrolador para o sensor)
+* MISO (dados do sensor para o microcontrolador)
+* SCK (clock) 
+* CS ou SS (seleção do sensor)
+ETC: Frequências mais altas que o I2C, Full-duplex, comunicação síncrona, 
+Baixa latência
+
+UART (Universal Asynchronous Receiver / Transmitter) - comunicação serial 
+básica, utiliza somente 2 pinos:
+* RX (Recepção)
+* TX (Transmissão)
+ETC: UART não precisa de clock o que difere do I2C, UART foi feito para 
+comunicação ponto a ponto ele utiliza a taxa de bauds para fazer o clock 
+no próprio CI, Full-duplex,
+Comunicação direta entre dois dispositivos
+
+— RESUMO —
+
+I2C - Protocolo simples que utiliza 2 pinos do microcontrolador, SDA pino 
+de dados e SCL pino de clock, para fazer a comunicação, podendo 
+compartilhar os mesmos fios com vários sensores
+
+
+EXEMPLO DE SPI: Alexa com lâmpadas inteligêntes
